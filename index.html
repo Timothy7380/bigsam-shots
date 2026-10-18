@@ -5,6 +5,7 @@
 <meta name="description" content="Big Sam — mobile photographer and cinematographer in Osogbo. Portraits, couples, fashion and lifestyle.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img/couple-bloom.webp" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
 <style>
 /* Layout: one long dark scroll, six full-bleed chapters; giant condensed name as the recurring anchor, italic serif for small labels */
@@ -34,14 +35,11 @@ a{color:inherit}
 .it{font-family:var(--serif);font-style:italic;font-weight:400}
 .label{font:500 11px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase}
 /* film grain over everything */
-.grain{pointer-events:none;position:fixed;inset:-50%;z-index:50;opacity:.13;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation:grain 1.2s steps(6) infinite}
-@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.grain{pointer-events:none;position:fixed;inset:0;z-index:50;opacity:.05;background:url("img/grain.png") repeat;transform:translateZ(0)}
 /* plastic-wrap sheen used on framed photos */
 .sheen{position:relative;overflow:hidden}
-.sheen::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
-  background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.28) 24%,transparent 31%,transparent 52%,rgba(255,255,255,.18) 58%,rgba(255,255,255,.05) 63%,transparent 70%),
+.sheen::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.2) 24%,transparent 31%,transparent 52%,rgba(255,255,255,.18) 58%,rgba(255,255,255,.05) 63%,transparent 70%),
              linear-gradient(200deg,transparent 40%,rgba(255,255,255,.14) 46%,transparent 52%)}
 .giant{font-family:var(--display);font-weight:400;line-height:.82;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
 
@@ -63,7 +61,7 @@ a{color:inherit}
 /* ---------- HERO ---------- */
 .hero{position:relative;min-height:clamp(600px,96svh,980px);overflow:hidden;isolation:isolate}
 .hero .bg{position:absolute;inset:0;z-index:-2}
-.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:saturate(.85) contrast(1.05);transform:scale(1.06)}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(13,11,10,.55) 0%,rgba(13,11,10,.05) 30%,rgba(13,11,10,.15) 60%,var(--ink) 100%),
              radial-gradient(120% 80% at 30% 40%,transparent 40%,rgba(13,11,10,.6) 100%)}
@@ -154,8 +152,8 @@ a{color:inherit}
 .scatter{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(14px,2vw,28px) clamp(10px,1.6vw,22px)}
 .shot{margin:0;cursor:zoom-in}
 .shot .frame{overflow:hidden;aspect-ratio:4/5;background:var(--ink-2)}
-.shot img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15);transition:transform .6s,filter .4s}
-.shot:hover img{transform:scale(1.05);filter:none}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.shot:hover img{transform:scale(1.05)}
 .shot figcaption{margin-top:8px;font-size:11px;letter-spacing:.06em;color:var(--mute);display:flex;justify-content:space-between;gap:8px}
 .shot figcaption i{font:italic 14px var(--serif);letter-spacing:0;color:var(--paper)}
 .gallery .words{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-top:clamp(40px,6vw,80px);font-size:clamp(80px,17vw,280px);margin-bottom:-.1em}
@@ -170,7 +168,7 @@ a{color:inherit}
 /* ---------- CONTACT ---------- */
 .contact{position:relative;min-height:clamp(620px,92svh,900px);display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
 .contact .bg{position:absolute;inset:0;z-index:-2}
-.contact .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:grayscale(1) contrast(1.1) brightness(.62)}
+.contact .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
 .contact::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--ink) 0%,rgba(13,11,10,.2) 22%,rgba(13,11,10,.35) 70%,var(--ink) 100%)}
 .contact .center{flex:1;display:grid;place-items:center;text-align:center;padding-block:120px 40px;position:relative}
 .contact h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(54px,9vw,150px);line-height:.92;margin:0;text-wrap:balance}
@@ -229,17 +227,17 @@ a{color:inherit}
     <div class="right it"><a href="#work">Work</a><a href="#contact">Book a shoot</a></div>
   </nav>
 
-  <div class="bg"><img src="img/couple-bloom.webp" alt="A couple in cream and plum stand under purple blossoms against a dark background"></div>
+  <div class="bg"><img src="img/couple-bloom.webp" width="800" height="1063" fetchpriority="high" decoding="async" alt="A couple in cream and plum stand under purple blossoms against a dark background"></div>
 
   <p class="intro">Big Sam is a mobile photographer and cinematographer based in <b>Osogbo, Nigeria</b>. He shoots portraits, couples, fashion and lifestyle stories with an eye for light, colour and real connection.</p>
 
   <div class="chip a">
     <span class="label">Based in Osogbo</span>
-    <div class="sheen"><img src="img/black-denim.webp" alt="Portrait of a young man in black denim and glasses"></div>
+    <div class="sheen"><img src="img/sm/black-denim.webp" width="480" height="638" decoding="async" alt="Portrait of a young man in black denim and glasses"></div>
   </div>
   <div class="chip b">
     <span class="label">Mobile photographer</span>
-    <div class="sheen"><img src="img/the-rose.webp" alt="A man hides a red rose behind his back as a woman covers her smile" style="object-position:50% 40%"></div>
+    <div class="sheen"><img src="img/sm/the-rose.webp" width="480" height="638" decoding="async" alt="A man hides a red rose behind his back as a woman covers her smile" style="object-position:50% 40%"></div>
   </div>
 
   <h1 class="name giant" data-drift="0.06"><span>Big Sam</span></h1>
@@ -269,9 +267,9 @@ a{color:inherit}
         </div>
       </div>
       <div class="stack" aria-label="Three printed photos fanned on a table">
-        <figure class="card c1 sheen" style="margin:0"><img src="img/graduate.webp" alt="Graduate in a sky-blue suit holding a sash"><figcaption>Milestones</figcaption></figure>
-        <figure class="card c2 sheen" style="margin:0"><img src="img/doorway.webp" alt="Woman in a striped knit top and white maxi skirt steps through a doorway"><figcaption>Editorial</figcaption></figure>
-        <figure class="card c3 sheen" style="margin:0"><img src="img/embrace.webp" alt="Woman in red embraces a man in black from behind, both smiling"><figcaption>Soft romance</figcaption></figure>
+        <figure class="card c1 sheen" style="margin:0"><img src="img/sm/graduate.webp" width="480" height="638" loading="lazy" decoding="async" alt="Graduate in a sky-blue suit holding a sash"><figcaption>Milestones</figcaption></figure>
+        <figure class="card c2 sheen" style="margin:0"><img src="img/sm/doorway.webp" width="480" height="638" loading="lazy" decoding="async" alt="Woman in a striped knit top and white maxi skirt steps through a doorway"><figcaption>Editorial</figcaption></figure>
+        <figure class="card c3 sheen" style="margin:0"><img src="img/sm/embrace.webp" width="480" height="638" loading="lazy" decoding="async" alt="Woman in red embraces a man in black from behind, both smiling"><figcaption>Soft romance</figcaption></figure>
       </div>
     </div>
   </div>
@@ -295,7 +293,7 @@ a{color:inherit}
           <button type="button" id="wNext" aria-label="Next series">→</button>
         </div>
       </div>
-      <div class="feature sheen"><img id="wFeature" src="img/balcony.webp" alt=""></div>
+      <div class="feature sheen"><img id="wFeature" src="img/balcony.webp" width="800" height="1063" loading="lazy" decoding="async" alt=""></div>
     </div>
     <div class="thumbs" id="wThumbs" role="group" aria-label="Photos in this series"></div>
   </div>
@@ -310,7 +308,7 @@ a{color:inherit}
     </div>
     <div class="svc-stage">
       <div class="svc-word giant" id="svcWord" aria-hidden="true">Portraits</div>
-      <div class="svc-photo sheen"><img id="svcImg" src="img/courtside.webp" alt=""></div>
+      <div class="svc-photo sheen"><img id="svcImg" src="img/sm/courtside.webp" width="480" height="638" loading="lazy" decoding="async" alt=""></div>
     </div>
     <div class="svc-body">
       <ul class="svc-list" role="tablist" aria-label="Services" id="svcList"></ul>
@@ -333,7 +331,7 @@ a{color:inherit}
 
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact" aria-labelledby="ct-h">
-  <div class="bg"><img src="img/walk.webp" alt=""></div>
+  <div class="bg"><img src="img/walk-bw.webp" width="800" height="1063" loading="lazy" decoding="async" alt=""></div>
   <div class="center wrap">
     <h2 id="ct-h">Let's create<br>something<br>worth keeping</h2>
     <a class="msg" href="https://wa.me/2348125606234" target="_blank" rel="noopener">Message<br>me!</a>
@@ -370,6 +368,7 @@ a{color:inherit}
 
 <script>
 const P = n => `img/${n}.webp`;
+const S = n => `img/sm/${n}.webp`;
 const ALT = {
   "couple-bloom":"Couple under purple blossoms","balcony":"Couple on a carved stone balcony","embrace":"Woman embracing a man from behind",
   "under-trees":"Couple resting under palm trees at golden hour","the-rose":"Rose surprise in a garden","walk":"Couple walking hand in hand",
@@ -399,7 +398,7 @@ function renderSeries(){
   document.getElementById('wCount').textContent = `${String(si+1).padStart(2,'0')} / ${String(SERIES.length).padStart(2,'0')}`;
   document.getElementById('wTitle').textContent = s.t;
   document.getElementById('wDesc').textContent = s.d;
-  wThumbs.innerHTML = s.p.map((n,k)=>`<button type="button" aria-label="Show photo ${k+1}: ${ALT[n]}"><img src="${P(n)}" alt="" loading="lazy"></button>`).join('');
+  wThumbs.innerHTML = s.p.map((n,k)=>`<button type="button" aria-label="Show photo ${k+1}: ${ALT[n]}"><img src="${S(n)}" width="480" height="638" alt="" loading="lazy" decoding="async"></button>`).join('');
   [...wThumbs.children].forEach((b,k)=>b.addEventListener('click',()=>setFeature(k)));
   setFeature(0);
 }
@@ -420,13 +419,15 @@ svcList.innerHTML = SVC.map((s,i)=>`<li role="presentation"><button role="tab" i
 function setSvc(i){
   const s = SVC[i];
   document.getElementById('svcWord').textContent = s.w;
-  const img = document.getElementById('svcImg'); img.src = P(s.img); img.alt = ALT[s.img];
+  const img = document.getElementById('svcImg'); img.src = S(s.img); img.alt = ALT[s.img];
   document.getElementById('svcText').textContent = s.t;
   document.getElementById('svcTags').innerHTML = s.tags.map(t=>`<li>${t}</li>`).join('');
   svcList.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-selected', k===i));
 }
 svcList.querySelectorAll('button').forEach((b,i)=>{ b.addEventListener('click',()=>setSvc(i)); b.addEventListener('mouseenter',()=>setSvc(i)); });
 setSvc(0);
+/* warm the cache for service photos so hovering swaps instantly */
+addEventListener('load', ()=> SVC.forEach(s=>{ const i = new Image(); i.src = S(s.img); }));
 
 /* ---- Gallery (scattered grid: col-start / span / vertical offset) ---- */
 const GAL = [
@@ -446,7 +447,7 @@ const GAL = [
   ["rose-rock","Muse","2026",                "11 / span 2","-60px"]
 ];
 const sc = document.getElementById('scatter');
-sc.innerHTML = GAL.map(([n,c,y,col,off],i)=>`<figure class="shot" style="grid-column:${col};margin-top:${off}" data-i="${i}" tabindex="0" role="button" aria-label="Open photo: ${c}"><div class="frame"><img src="${P(n)}" alt="${ALT[n]}" loading="lazy"></div><figcaption><i>${c}</i><span>${y}</span></figcaption></figure>`).join('');
+sc.innerHTML = GAL.map(([n,c,y,col,off],i)=>`<figure class="shot" style="grid-column:${col};margin-top:${off}" data-i="${i}" tabindex="0" role="button" aria-label="Open photo: ${c}"><div class="frame"><img src="${S(n)}" width="480" height="638" alt="${ALT[n]}" loading="lazy" decoding="async"></div><figcaption><i>${c}</i><span>${y}</span></figcaption></figure>`).join('');
 
 /* ---- Lightbox ---- */
 const lb = document.getElementById('lb'); let li = 0;
