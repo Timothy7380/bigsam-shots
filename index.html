@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
+<title>Big Sam Shots</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Big Sam — mobile photographer and cinematographer in Osogbo. Portraits, couples, fashion and lifestyle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: one long dark scroll, six full-bleed chapters; giant condensed name as the recurring anchor, italic serif for small labels */
+:root{
+  --ink:#0d0b0a;          /* warm near-black ground */
+  --ink-2:#161311;        /* raised panels */
+  --night:#14202b;        /* blue-black for the works chapter */
+  --paper:#f3ede5;        /* warm off-white type */
+  --mute:#a39a8f;         /* secondary text */
+  --ember:#d9582b;        /* leaf / ember accent (from the 🍂 signature) */
+  --line:rgba(243,237,229,.16);
+  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font:400 15px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+.wrap{padding-left:var(--gut);padding-right:var(--gut-r)}
+.it{font-family:var(--serif);font-style:italic;font-weight:400}
+.label{font:500 11px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase}
+/* film grain over everything */
+.grain{pointer-events:none;position:fixed;inset:-50%;z-index:50;opacity:.13;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+/* plastic-wrap sheen used on framed photos */
+.sheen{position:relative;overflow:hidden}
+.sheen::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+  background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.28) 24%,transparent 31%,transparent 52%,rgba(255,255,255,.18) 58%,rgba(255,255,255,.05) 63%,transparent 70%),
+             linear-gradient(200deg,transparent 40%,rgba(255,255,255,.14) 46%,transparent 52%)}
+.giant{font-family:var(--display);font-weight:400;line-height:.82;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
+
+/* ---------- NAV ---------- */
+.nav{position:absolute;z-index:20;top:0;left:0;right:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:22px}
+.nav a{text-decoration:none}
+.nav .left,.nav .right{display:flex;gap:22px;font-size:17px}
+.nav .right{justify-content:flex-end}
+.nav .it a{border-bottom:1px solid transparent;transition:border-color .2s}
+.nav .it a:hover{border-color:currentColor}
+.logo{font-family:var(--display);font-size:22px;letter-spacing:.06em;color:var(--ember);display:flex;align-items:center;gap:8px}
+.logo small{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--paper);letter-spacing:0}
+.menu{position:fixed;inset:0;z-index:70;background:var(--ink);display:flex;flex-direction:column;justify-content:center;gap:4px;padding-block:80px}
+.menu a{font-family:var(--display);font-size:clamp(48px,11vw,120px);line-height:1;text-transform:uppercase;text-decoration:none;color:var(--paper);transition:color .2s,transform .3s}
+.menu a:hover{color:var(--ember);transform:translateX(12px)}
+.menu .close{position:absolute;top:calc(22px + env(safe-area-inset-top,0px));right:var(--gut-r);font:italic 18px var(--serif);background:none;border:0;color:var(--paper);cursor:pointer}
+.menu-btn{background:none;border:0;color:var(--paper);font:italic 17px var(--serif);cursor:pointer;padding:0}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:clamp(600px,96svh,980px);overflow:hidden;isolation:isolate}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:saturate(.85) contrast(1.05);transform:scale(1.06)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(13,11,10,.55) 0%,rgba(13,11,10,.05) 30%,rgba(13,11,10,.15) 60%,var(--ink) 100%),
+             radial-gradient(120% 80% at 30% 40%,transparent 40%,rgba(13,11,10,.6) 100%)}
+.hero .intro{position:absolute;top:96px;left:var(--gut);max-width:290px;font-size:13px;line-height:1.55;color:var(--paper)}
+.hero .intro b{font-weight:600}
+.chip{position:absolute;z-index:3;display:flex;flex-direction:column;gap:8px}
+.chip img{object-fit:cover;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.chip.a{left:11%;bottom:clamp(150px,17vw,250px)}
+.chip.a .sheen{width:clamp(96px,11vw,150px);aspect-ratio:3/4;transform:rotate(-3deg)}
+.chip.b{right:7%;bottom:clamp(130px,14vw,215px)}
+.chip.b .sheen{width:clamp(130px,17vw,230px);aspect-ratio:4/3.4;transform:rotate(2deg)}
+.chip .sheen img{width:100%;height:100%}
+.hero .name{position:absolute;left:0;right:0;bottom:clamp(56px,4.5vw,80px);margin:0;text-align:center;font-size:clamp(96px,22vw,340px);color:var(--paper);z-index:2;mix-blend-mode:normal}
+.hero .name span{display:inline-block}
+.hero .foot{position:absolute;left:var(--gut);right:var(--gut-r);bottom:22px;display:flex;justify-content:space-between;align-items:end;gap:16px;z-index:4}
+.hero .foot .it{font-size:22px}
+.hero .foot .label{color:var(--mute)}
+
+/* ---------- PROFILE ---------- */
+.profile{position:relative;padding-block:clamp(72px,10vw,140px) 0;overflow:hidden}
+.profile .head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(36px,6vw,80px)}
+.profile .head .it{font-size:26px}
+.profile .grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,6vw,96px);align-items:center}
+.bio{max-width:58ch}
+.bio p{font-size:clamp(16px,1.35vw,19px);line-height:1.7;margin:0 0 1.1em;color:#e6dfd5;text-align:justify;hyphens:auto}
+.bio p:first-child::first-letter{font-family:var(--display);float:left;font-size:4.2em;line-height:.8;padding:6px 10px 0 0;color:var(--ember)}
+.stats{display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,56px);margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.stats div{display:flex;flex-direction:column;gap:4px}
+.stats strong{font-family:var(--display);font-weight:400;font-size:clamp(34px,4vw,52px);line-height:1;font-variant-numeric:tabular-nums}
+.stats span{color:var(--mute);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.stack{position:relative;height:clamp(380px,42vw,560px);max-width:440px;width:100%;justify-self:center}
+.stack .card{position:absolute;width:68%;aspect-ratio:3/4;background:#ddd;padding:10px 10px 38px;box-shadow:0 30px 60px rgba(0,0,0,.55);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.stack .card img{width:100%;height:100%;object-fit:cover}
+.stack .card figcaption{position:absolute;left:12px;bottom:10px;font:italic 15px var(--serif);color:#2a2522}
+.stack .c1{left:2%;top:8%;transform:rotate(-8deg)}
+.stack .c2{right:0;top:0;transform:rotate(6deg)}
+.stack .c3{left:18%;top:18%;transform:rotate(-1deg)}
+.stack:hover .c1{transform:rotate(-14deg) translate(-26px,8px)}
+.stack:hover .c2{transform:rotate(11deg) translate(26px,-6px)}
+.stack:hover .c3{transform:rotate(1deg) translateY(-10px)}
+.profile .band{margin-top:clamp(60px,8vw,110px);font-size:clamp(90px,24vw,380px);color:var(--paper);margin-bottom:-.12em;will-change:transform}
+
+/* ---------- WORKS ---------- */
+.works{position:relative;background:var(--night);padding-block:clamp(56px,8vw,110px);overflow:hidden;isolation:isolate}
+.works::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.55;
+  background:repeating-linear-gradient(90deg,transparent 0 calc(100%/14 - 22px),rgba(0,0,0,.35) calc(100%/14 - 22px) calc(100%/14))}
+.works .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.works .top .it{font-size:22px}
+.works .stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(24px,5vw,72px);align-items:end;margin-top:clamp(28px,4vw,48px)}
+.works .count{font:500 12px var(--body);letter-spacing:.14em;color:var(--mute);font-variant-numeric:tabular-nums}
+.works h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(48px,7.2vw,112px);line-height:.9;margin:10px 0 18px;text-wrap:balance}
+.works .desc{max-width:44ch;color:#cfd5da;margin:0 0 24px}
+.works .ctrl{display:flex;gap:10px}
+.works .ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--paper);font-size:20px;cursor:pointer;transition:background .2s,border-color .2s}
+.works .ctrl button:hover{background:var(--paper);color:var(--night)}
+.works .feature{aspect-ratio:4/5;max-height:640px;width:100%;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.works .feature img{width:100%;height:100%;object-fit:cover;transition:opacity .35s,transform 1.2s}
+.works .feature:hover img{transform:scale(1.04)}
+.thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:clamp(28px,4vw,48px)}
+.thumbs button{padding:0;border:0;background:none;cursor:pointer;aspect-ratio:4/5;overflow:hidden;opacity:.55;transition:opacity .25s,transform .25s;outline-offset:2px}
+.thumbs button[aria-pressed="true"],.thumbs button:hover{opacity:1}
+.thumbs button[aria-pressed="true"]{transform:translateY(-6px)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- SERVICES ---------- */
+.services{position:relative;padding-block:clamp(72px,10vw,140px) clamp(48px,6vw,90px);overflow:hidden;background:linear-gradient(180deg,var(--night),var(--ink) 30%)}
+.services .head{display:flex;justify-content:space-between;align-items:baseline}
+.services .head .it{font-size:22px}
+.svc-stage{position:relative;display:grid;place-items:center;margin-block:clamp(24px,4vw,48px)}
+.svc-word{font-size:clamp(70px,17vw,280px);background:linear-gradient(90deg,#3b3631,#9a9087 40%,#3b3631);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center;width:100%}
+.svc-photo{position:absolute;width:clamp(150px,19vw,280px);aspect-ratio:4/5;transform:rotate(4deg);box-shadow:0 30px 70px rgba(0,0,0,.6);transition:transform .5s}
+.svc-photo img{width:100%;height:100%;object-fit:cover}
+.svc-stage:hover .svc-photo{transform:rotate(-2deg) scale(1.03)}
+.svc-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:end}
+.svc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.svc-list button{all:unset;cursor:pointer;display:flex;align-items:baseline;gap:14px;font-family:var(--display);text-transform:uppercase;font-size:clamp(30px,3.6vw,52px);line-height:1.15;color:#4a443e;transition:color .25s,transform .25s}
+.svc-list button sup{font:500 11px var(--body);letter-spacing:.1em;color:var(--mute)}
+.svc-list button:hover{color:#8d847a}
+.svc-list button[aria-selected="true"]{color:var(--paper);transform:translateX(14px)}
+.svc-list button:focus-visible{outline:2px solid var(--ember);outline-offset:4px}
+.svc-detail{max-width:42ch;justify-self:end}
+.svc-detail p{margin:0 0 14px;color:#d9d1c6}
+.svc-detail ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.svc-detail li{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12px;color:var(--mute)}
+
+/* ---------- GALLERY ---------- */
+.gallery{position:relative;padding-block:clamp(40px,5vw,72px) 0;overflow:hidden}
+.scatter{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(14px,2vw,28px) clamp(10px,1.6vw,22px)}
+.shot{margin:0;cursor:zoom-in}
+.shot .frame{overflow:hidden;aspect-ratio:4/5;background:var(--ink-2)}
+.shot img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15);transition:transform .6s,filter .4s}
+.shot:hover img{transform:scale(1.05);filter:none}
+.shot figcaption{margin-top:8px;font-size:11px;letter-spacing:.06em;color:var(--mute);display:flex;justify-content:space-between;gap:8px}
+.shot figcaption i{font:italic 14px var(--serif);letter-spacing:0;color:var(--paper)}
+.gallery .words{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-top:clamp(40px,6vw,80px);font-size:clamp(80px,17vw,280px);margin-bottom:-.1em}
+.lightbox{position:fixed;inset:0;z-index:80;background:rgba(8,7,6,.94);display:grid;place-items:center;padding:calc(56px + env(safe-area-inset-top,0px)) var(--gut-r) calc(56px + env(safe-area-inset-bottom,0px)) var(--gut)}
+.lightbox img{max-height:82svh;width:auto;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lightbox p{margin:14px 0 0;text-align:center;font:italic 18px var(--serif)}
+.lightbox button{position:absolute;background:none;border:0;color:var(--paper);cursor:pointer;font:italic 18px var(--serif)}
+.lightbox .x{top:calc(18px + env(safe-area-inset-top,0px));right:var(--gut-r)}
+.lightbox .pv,.lightbox .nx{top:50%;font:400 30px var(--body);padding:10px}
+.lightbox .pv{left:var(--gut)}.lightbox .nx{right:var(--gut-r)}
+
+/* ---------- CONTACT ---------- */
+.contact{position:relative;min-height:clamp(620px,92svh,900px);display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.contact .bg{position:absolute;inset:0;z-index:-2}
+.contact .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:grayscale(1) contrast(1.1) brightness(.62)}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--ink) 0%,rgba(13,11,10,.2) 22%,rgba(13,11,10,.35) 70%,var(--ink) 100%)}
+.contact .center{flex:1;display:grid;place-items:center;text-align:center;padding-block:120px 40px;position:relative}
+.contact h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(54px,9vw,150px);line-height:.92;margin:0;text-wrap:balance}
+.msg{position:absolute;left:50%;top:50%;width:clamp(96px,10vw,132px);aspect-ratio:1;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;text-align:center;font:italic clamp(17px,1.7vw,22px)/1 var(--serif);text-decoration:none;transform:translate(-50%,-38%) rotate(-8deg);box-shadow:0 18px 40px rgba(0,0,0,.5);transition:transform .3s,background .3s}
+.msg:hover{transform:translate(-50%,-38%) rotate(0) scale(1.08);background:var(--ember)}
+.contact .lines{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:0 28px}
+.contact .lines a{font-size:12px;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.contact .lines a:hover{border-color:var(--paper)}
+.contact .lines .r{justify-self:end}
+.reach{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.reach .num{font-family:var(--body);font-size:clamp(18px,2vw,26px);font-weight:500;font-variant-numeric:tabular-nums;user-select:all}
+.copy{background:none;border:1px solid var(--line);color:var(--mute);border-radius:999px;padding:4px 12px;font:500 11px var(--body);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.copy:hover{color:var(--paper);border-color:var(--paper)}
+.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:16px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.contact .band{font-size:clamp(90px,24vw,380px);text-align:center;margin-bottom:-.13em}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .profile .grid,.works .stage,.svc-body{grid-template-columns:minmax(0,1fr)}
+  .stack{height:clamp(360px,100vw,480px)}
+  .works .feature{order:-1;aspect-ratio:4/5}
+  .thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .svc-detail{justify-self:start}
+  .contact .lines{grid-template-columns:1fr 1fr}
+  .contact .lines .reach{grid-column:1/-1;order:-1;margin-bottom:12px}
+}
+@media (max-width:600px){
+  .nav .right a:first-child{display:none}
+  .hero .intro{top:78px;max-width:230px;font-size:12px}
+  .chip.a{left:var(--gut);bottom:44%}
+  .chip.b{right:var(--gut-r);bottom:33%}
+  .chip .label{font-size:9px}
+  .hero .name{bottom:64px}
+  .bio p{text-align:left}
+  .scatter .shot{grid-column:span 6 !important;margin-top:0 !important}
+  .gallery .words{font-size:clamp(56px,19vw,120px)}
+  .svc-stage{min-height:260px}
+  .svc-photo{width:140px}
+  .contact .center{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+  .msg,.msg:hover{position:static;transform:rotate(-8deg)}
+  .contact .band{font-size:clamp(80px,26vw,140px)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+</style>
+</head><body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <nav class="nav wrap" aria-label="Main">
+    <div class="left it"><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button></div>
+    <a href="#top" class="logo" aria-label="Big Sam home">✞ BS ✞ <small>shots</small></a>
+    <div class="right it"><a href="#work">Work</a><a href="#contact">Book a shoot</a></div>
+  </nav>
+
+  <div class="bg"><img src="img/couple-bloom.webp" alt="A couple in cream and plum stand under purple blossoms against a dark background"></div>
+
+  <p class="intro">Big Sam is a mobile photographer and cinematographer based in <b>Osogbo, Nigeria</b>. He shoots portraits, couples, fashion and lifestyle stories with an eye for light, colour and real connection.</p>
+
+  <div class="chip a">
+    <span class="label">Based in Osogbo</span>
+    <div class="sheen"><img src="img/black-denim.webp" alt="Portrait of a young man in black denim and glasses"></div>
+  </div>
+  <div class="chip b">
+    <span class="label">Mobile photographer</span>
+    <div class="sheen"><img src="img/the-rose.webp" alt="A man hides a red rose behind his back as a woman covers her smile" style="object-position:50% 40%"></div>
+  </div>
+
+  <h1 class="name giant" data-drift="0.06"><span>Big Sam</span></h1>
+
+  <div class="foot">
+    <a href="#profile" class="it" style="text-decoration:none">Profile</a>
+    <span class="label">Portraits · Fashion · Lifestyle</span>
+  </div>
+</header>
+
+<!-- ============ PROFILE ============ -->
+<section class="profile" id="profile" aria-labelledby="profile-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="profile-h" class="it" style="margin:0;font-weight:400">Profile</h2>
+      <span class="label" style="color:var(--mute)">Creating visuals that matter</span>
+    </div>
+    <div class="grid">
+      <div class="bio">
+        <p>Big Sam is a photographer and cinematographer working out of Osogbo, Osun State. Everything he shoots is made on a phone. His work shows that the eye behind the camera matters more than the gear: every frame is composed, lit and edited by hand, and much of it is shot on an iPhone 15 Pro Max.</p>
+        <p>His portfolio moves between soft, romantic couple stories, sharp street and menswear looks, editorial fashion and milestone portraits like graduations. The style is warm and cinematic, with rich colour, natural light and poses that feel unforced. People come for the pictures and come back because the shoots feel easy.</p>
+        <p>He is open for personal sessions, couple shoots, brand campaigns and collaborations across Osun State and beyond.</p>
+        <div class="stats">
+          <div><strong>11.5K</strong><span>Followers</span></div>
+          <div><strong>326.7K</strong><span>Likes on TikTok</span></div>
+          <div><strong>421K</strong><span>Views on one post</span></div>
+        </div>
+      </div>
+      <div class="stack" aria-label="Three printed photos fanned on a table">
+        <figure class="card c1 sheen" style="margin:0"><img src="img/graduate.webp" alt="Graduate in a sky-blue suit holding a sash"><figcaption>Milestones</figcaption></figure>
+        <figure class="card c2 sheen" style="margin:0"><img src="img/doorway.webp" alt="Woman in a striped knit top and white maxi skirt steps through a doorway"><figcaption>Editorial</figcaption></figure>
+        <figure class="card c3 sheen" style="margin:0"><img src="img/embrace.webp" alt="Woman in red embraces a man in black from behind, both smiling"><figcaption>Soft romance</figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="band giant" data-drift="-0.12" aria-hidden="true">Big Sam&nbsp;&nbsp;Big Sam</div>
+</section>
+
+<!-- ============ WORKS ============ -->
+<section class="works" id="work" aria-labelledby="works-h">
+  <div class="wrap">
+    <div class="top">
+      <span class="it">Sam Works ('25–'26)</span>
+      <span class="label" style="color:var(--mute)">Shot on phone · edited by hand</span>
+    </div>
+    <div class="stage">
+      <div>
+        <div class="count" id="wCount">01 / 04</div>
+        <h2 id="works-h"><span id="wTitle">Soft Romance</span></h2>
+        <p class="desc" id="wDesc">Couple sessions built around touch, laughter and golden light. Gardens, carved stone and quiet streets do the rest.</p>
+        <div class="ctrl">
+          <button type="button" id="wPrev" aria-label="Previous series">←</button>
+          <button type="button" id="wNext" aria-label="Next series">→</button>
+        </div>
+      </div>
+      <div class="feature sheen"><img id="wFeature" src="img/balcony.webp" alt=""></div>
+    </div>
+    <div class="thumbs" id="wThumbs" role="group" aria-label="Photos in this series"></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="svc-h" class="it" style="margin:0;font-weight:400;font-size:22px">Services</h2>
+      <span class="label" style="color:var(--mute)">Bookings &amp; collaborations</span>
+    </div>
+    <div class="svc-stage">
+      <div class="svc-word giant" id="svcWord" aria-hidden="true">Portraits</div>
+      <div class="svc-photo sheen"><img id="svcImg" src="img/courtside.webp" alt=""></div>
+    </div>
+    <div class="svc-body">
+      <ul class="svc-list" role="tablist" aria-label="Services" id="svcList"></ul>
+      <div class="svc-detail" role="tabpanel" id="svcPanel" aria-live="polite">
+        <p id="svcText"></p>
+        <ul id="svcTags"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery" aria-labelledby="gal-h">
+  <div class="wrap">
+    <h2 id="gal-h" class="it" style="margin:0 0 clamp(28px,4vw,56px);font-weight:400;font-size:22px">Gallery</h2>
+    <div class="scatter" id="scatter"></div>
+  </div>
+  <div class="words giant wrap" aria-hidden="true"><span>The</span><span>Gallery</span></div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact" aria-labelledby="ct-h">
+  <div class="bg"><img src="img/walk.webp" alt=""></div>
+  <div class="center wrap">
+    <h2 id="ct-h">Let's create<br>something<br>worth keeping</h2>
+    <a class="msg" href="https://wa.me/2348125606234" target="_blank" rel="noopener">Message<br>me!</a>
+  </div>
+  <div class="wrap">
+    <div class="lines">
+      <a href="https://www.tiktok.com/@ambig_sam" target="_blank" rel="noopener">TikTok @ambig_sam</a>
+      <div class="reach">
+        <span class="label" style="color:var(--mute)">Bookings on WhatsApp</span>
+        <span class="num" id="num">+234 812 560 6234</span>
+        <button type="button" class="copy" id="copyBtn">Copy number</button>
+      </div>
+      <a class="r" href="https://wa.me/2348125606234" target="_blank" rel="noopener">Message on WhatsApp</a>
+    </div>
+    <div class="footer-row">
+      <span>© 2026 Big Sam. All rights reserved.</span>
+      <span>Mobile photographer &amp; cinematographer from Osogbo</span>
+    </div>
+  </div>
+  <div class="band giant" data-drift="0.1" aria-hidden="true">Big Sam&nbsp;Shots</div>
+</section>
+
+<!-- menu + lightbox -->
+<div class="menu wrap" id="menu" hidden>
+  <button class="close" id="menuClose">Close</button>
+  <a href="#profile">Profile</a><a href="#work">Work</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+</div>
+<div class="lightbox" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="x" id="lbX">Close</button>
+  <button class="pv" id="lbP" aria-label="Previous photo">‹</button>
+  <figure style="margin:0"><img id="lbImg" src="" alt=""><p id="lbCap"></p></figure>
+  <button class="nx" id="lbN" aria-label="Next photo">›</button>
+</div>
+
+<script>
+const P = n => `img/${n}.webp`;
+const ALT = {
+  "couple-bloom":"Couple under purple blossoms","balcony":"Couple on a carved stone balcony","embrace":"Woman embracing a man from behind",
+  "under-trees":"Couple resting under palm trees at golden hour","the-rose":"Rose surprise in a garden","walk":"Couple walking hand in hand",
+  "pinstripe-duo":"Couple in pinstripes and denim","black-denim":"Man in black denim","brick-wall":"Man in a flat cap leaning on a brick wall",
+  "red-jacket":"Detail of a red embroidered jacket","courtside":"Athlete in red on a basketball court","western":"Western-styled couple in hats and denim",
+  "doorway":"Woman in striped knit stepping through a doorway","green-stripe-duo":"Duo in green stripes and a cap","pinstripe-suit":"Woman in a pinstripe suit",
+  "rose-rock":"Woman with a rose sitting on a rock","graduate":"Graduate in a sky-blue suit","jersey":"Woman in an Argentina jersey with a football"
+};
+
+/* ---- Works ---- */
+const SERIES = [
+  {t:"Soft Romance", d:"Couple sessions built around touch, laughter and golden light. Gardens, carved stone and quiet streets do the rest.", p:["balcony","couple-bloom","embrace","under-trees","the-rose","walk"]},
+  {t:"Street & Style", d:"Menswear and street looks with clean lines and strong attitude. The fit is the subject, and the city is the set.", p:["brick-wall","black-denim","red-jacket","courtside","western","pinstripe-duo"]},
+  {t:"Editorial", d:"Fashion stories with a slower pace: pattern, texture and posture, framed like a magazine page.", p:["doorway","green-stripe-duo","pinstripe-suit","rose-rock","western","red-jacket"]},
+  {t:"Milestones", d:"Graduations, birthdays and the days you want to remember properly. Bold colour and portraits that feel like you.", p:["graduate","jersey","courtside","pinstripe-suit","rose-rock","embrace"]}
+];
+let si = 0, pi = 0;
+const wThumbs = document.getElementById('wThumbs'), wFeature = document.getElementById('wFeature');
+function setFeature(i){
+  pi = i; const n = SERIES[si].p[i];
+  wFeature.style.opacity = .2;
+  const im = new Image(); im.onload = () => { wFeature.src = im.src; wFeature.alt = ALT[n]; wFeature.style.opacity = 1; }; im.src = P(n);
+  [...wThumbs.children].forEach((b,k)=>b.setAttribute('aria-pressed', k===i));
+}
+function renderSeries(){
+  const s = SERIES[si];
+  document.getElementById('wCount').textContent = `${String(si+1).padStart(2,'0')} / ${String(SERIES.length).padStart(2,'0')}`;
+  document.getElementById('wTitle').textContent = s.t;
+  document.getElementById('wDesc').textContent = s.d;
+  wThumbs.innerHTML = s.p.map((n,k)=>`<button type="button" aria-label="Show photo ${k+1}: ${ALT[n]}"><img src="${P(n)}" alt="" loading="lazy"></button>`).join('');
+  [...wThumbs.children].forEach((b,k)=>b.addEventListener('click',()=>setFeature(k)));
+  setFeature(0);
+}
+document.getElementById('wPrev').onclick = ()=>{ si = (si-1+SERIES.length)%SERIES.length; renderSeries(); };
+document.getElementById('wNext').onclick = ()=>{ si = (si+1)%SERIES.length; renderSeries(); };
+renderSeries();
+
+/* ---- Services ---- */
+const SVC = [
+  {k:"Portraits", w:"Portraits", img:"courtside", t:"Solo sessions for profiles, brands and the 'new pictures' you keep promising yourself. Directed posing, natural light and polished edits.", tags:["Personal branding","Birthday shoots","Lifestyle"]},
+  {k:"Couple shoots", w:"Couples", img:"under-trees", t:"Pre-wedding, anniversary or just-because sessions. Relaxed direction so the moments look like yours and not a stock photo.", tags:["Pre-wedding","Anniversaries","Duo shoots"]},
+  {k:"Fashion & brand", w:"Fashion", img:"green-stripe-duo", t:"Lookbooks, outfit content and campaign imagery for clothing brands, stylists and creators. Shot for feeds and for print.", tags:["Lookbooks","Brand campaigns","Content creators"]},
+  {k:"Milestones", w:"Milestones", img:"graduate", t:"Graduation, convocation and celebration shoots with bold colour and the details that make the day yours.", tags:["Graduation","Convocation","Celebrations"]},
+  {k:"Cinematography", w:"Film", img:"red-jacket", t:"Short-form video for reels and TikTok, BTS clips and cinematic edits that move as well as the stills.", tags:["Reels & TikTok","Behind the scenes","Promo clips"]}
+];
+const svcList = document.getElementById('svcList');
+svcList.innerHTML = SVC.map((s,i)=>`<li role="presentation"><button role="tab" id="svc-${i}" aria-controls="svcPanel" aria-selected="${i===0}"><sup>${String(i+1).padStart(2,'0')}</sup>${s.k}</button></li>`).join('');
+function setSvc(i){
+  const s = SVC[i];
+  document.getElementById('svcWord').textContent = s.w;
+  const img = document.getElementById('svcImg'); img.src = P(s.img); img.alt = ALT[s.img];
+  document.getElementById('svcText').textContent = s.t;
+  document.getElementById('svcTags').innerHTML = s.tags.map(t=>`<li>${t}</li>`).join('');
+  svcList.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-selected', k===i));
+}
+svcList.querySelectorAll('button').forEach((b,i)=>{ b.addEventListener('click',()=>setSvc(i)); b.addEventListener('mouseenter',()=>setSvc(i)); });
+setSvc(0);
+
+/* ---- Gallery (scattered grid: col-start / span / vertical offset) ---- */
+const GAL = [
+  ["couple-bloom","Shared moments","2026",  "1 / span 3","0"],
+  ["jersey","Not just a jersey","2026",      "5 / span 2","90px"],
+  ["western","Wild side","2026",             "8 / span 3","24px"],
+  ["doorway","Class speaks","2026",          "11 / span 2","140px"],
+  ["embrace","Soft romance","2026",          "2 / span 2","-10px"],
+  ["brick-wall","Made to stand out","2026",  "4 / span 3","60px"],
+  ["the-rose","Some connections","2026",     "9 / span 2","-40px"],
+  ["pinstripe-suit","Pinstripe","2026",      "1 / span 2","40px"],
+  ["courtside","A little sporty","2026",     "6 / span 2","-20px"],
+  ["under-trees","Every frame","2026",       "10 / span 3","20px"],
+  ["green-stripe-duo","Retro love","2026",   "3 / span 3","-30px"],
+  ["graduate","Milestone","2026",            "7 / span 2","50px"],
+  ["red-jacket","Finest details","2026",     "9 / span 2","0"],
+  ["rose-rock","Muse","2026",                "11 / span 2","-60px"]
+];
+const sc = document.getElementById('scatter');
+sc.innerHTML = GAL.map(([n,c,y,col,off],i)=>`<figure class="shot" style="grid-column:${col};margin-top:${off}" data-i="${i}" tabindex="0" role="button" aria-label="Open photo: ${c}"><div class="frame"><img src="${P(n)}" alt="${ALT[n]}" loading="lazy"></div><figcaption><i>${c}</i><span>${y}</span></figcaption></figure>`).join('');
+
+/* ---- Lightbox ---- */
+const lb = document.getElementById('lb'); let li = 0;
+function openLb(i){ li = (i+GAL.length)%GAL.length; const [n,c] = GAL[li]; const im = document.getElementById('lbImg'); im.src = P(n); im.alt = ALT[n]; document.getElementById('lbCap').textContent = c; lb.hidden = false; document.getElementById('lbX').focus(); }
+sc.addEventListener('click', e=>{ const f = e.target.closest('.shot'); if (f) openLb(+f.dataset.i); });
+sc.addEventListener('keydown', e=>{ const f = e.target.closest('.shot'); if (f && (e.key==='Enter'||e.key===' ')) { e.preventDefault(); openLb(+f.dataset.i); } });
+document.getElementById('lbX').onclick = ()=> lb.hidden = true;
+document.getElementById('lbP').onclick = ()=> openLb(li-1);
+document.getElementById('lbN').onclick = ()=> openLb(li+1);
+lb.addEventListener('click', e=>{ if (e.target === lb) lb.hidden = true; });
+
+/* ---- Menu ---- */
+const menu = document.getElementById('menu'), mb = document.getElementById('menuBtn');
+mb.onclick = ()=>{ menu.hidden = false; mb.setAttribute('aria-expanded','true'); document.getElementById('menuClose').focus(); };
+const closeMenu = ()=>{ menu.hidden = true; mb.setAttribute('aria-expanded','false'); };
+document.getElementById('menuClose').onclick = closeMenu;
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e=>{
+  if (e.key==='Escape'){ closeMenu(); lb.hidden = true; }
+  if (!lb.hidden && e.key==='ArrowRight') openLb(li+1);
+  if (!lb.hidden && e.key==='ArrowLeft') openLb(li-1);
+});
+
+/* ---- Copy number ---- */
+document.getElementById('copyBtn').addEventListener('click', async e=>{
+  const btn = e.currentTarget, txt = '+2348125606234';
+  try { await navigator.clipboard.writeText(txt); btn.textContent = 'Copied'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('num')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected, press copy'; }
+  setTimeout(()=> btn.textContent = 'Copy number', 2200);
+});
+
+/* ---- Scroll drift on the giant name bands ---- */
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduce && innerWidth > 600){
+  const drifts = [...document.querySelectorAll('[data-drift]')];
+  let ticking = false;
+  const run = ()=>{ const vh = innerHeight; drifts.forEach(el=>{ const r = el.getBoundingClientRect(); const p = (r.top + r.height/2 - vh/2); el.style.transform = `translateX(${p * +el.dataset.drift}px)`; }); ticking = false; };
+  addEventListener('scroll', ()=>{ if(!ticking){ ticking = true; requestAnimationFrame(run); } }, {passive:true});
+  run();
+}
+</script>
+</body></html>
